@@ -65,7 +65,7 @@ I love turning ideas into practical projects and continuously learning new techn
 
 ## 📫 Connect With Me
 
-* 📧 Email: [khadijazaman@email.com](mailto:khadijazaman@email.com)
+* 📧 Email: [khadijazaman.ai@email.com](mailto:khadijazaman.ai@email.com)
 
 ---
 
