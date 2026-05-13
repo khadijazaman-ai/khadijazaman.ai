@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khadija Zaman - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: white;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #1a5490;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        .header h1 {
+            color: #1a5490;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .header .contact-info {
+            color: #555;
+            font-size: 14px;
+        }
+        .header .contact-info a {
+            color: #1a5490;
+            text-decoration: none;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section-title {
+            color: #1a5490;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #1a5490;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+        }
+        .content {
+            font-size: 14px;
+            color: #444;
+        }
+        .content p {
+            margin-bottom: 10px;
+        }
+        .education-item {
+            margin-bottom: 15px;
+        }
+        .education-item h3 {
+            font-weight: 600;
+            color: #333;
+            font-size: 15px;
+        }
+        .education-item .details {
+            color: #666;
+            font-style: italic;
+            font-size: 13px;
+        }
+        .education-item .highlight {
+            color: #1a5490;
+            font-weight: 600;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 20px;
+        }
+        .skill-category {
+            font-weight: 600;
+            color: #333;
+        }
+        .project-item {
+            margin-bottom: 15px;
+        }
+        .project-item h3 {
+            font-weight: 600;
+            color: #333;
+            font-size: 15px;
+        }
+        .project-item .tech {
+            color: #1a5490;
+            font-size: 13px;
+            font-style: italic;
+        }
+        .soft-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .soft-skill {
+            background: #f0f4f8;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 30px;
+        }
+        .languages-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .language-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .proficiency {
+            display: inline-block;
+            width: 60px;
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            margin-left: 5px;
+            position: relative;
+        }
+        .proficiency::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: #1a5490;
+            border-radius: 3px;
+        }
+        .proficiency.native::after { width: 100%; }
+        .proficiency.fluent::after { width: 85%; }
+        .proficiency.good::after { width: 70%; }
+        @media print {
+            body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>KHADIJA ZAMAN</h1>
+        <div class="contact-info">
+            Swabi, KPK, Pakistan | <a href="mailto:khadijazaman.ai@gmail.com">khadijazaman.ai@gmail.com</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Personal Information</div>
+        <div class="content personal-info">
+            <div class="info-grid">
+                <div><strong>Gender:</strong> Female</div>
+                <div><strong>Nationality:</strong> Pakistani</div>
+                <div><strong>Location:</strong> Swabi, KPK, Pakistan</div>
+                <div><strong>Email:</strong> khadijazaman.ai@gmail.com</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Career Objective</div>
+        <div class="content">
+            <p>Dedicated BS Computer Science student at AWKUM with practical skills in web development and programming, and a growing interest in AI and Machine Learning. Eager to secure a summer internship to apply technical knowledge and contribute to real-world technology projects.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Education</div>
+        <div class="content">
+            <div class="education-item">
+                <h3>BS Computer Science</h3>
+                <div class="details">Abdul Wali Khan University Mardan, Mardan<br>2023 – 2027 (Expected)</div>
+                <div class="highlight">CGPA: 3.45 / 4.00</div>
+            </div>
+            <div class="education-item">
+                <h3>Intermediate (FSc)</h3>
+                <div class="details">Govt. Girls Degree College Yar Hussain, Swabi<br>2023 | BISE Mardan</div>
+                <div class="highlight">807 Marks – Grade A</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Languages</div>
+        <div class="content">
+            <div class="languages-grid">
+                <div class="language-item">
+                    <strong>Pashto</strong> <span class="proficiency native"></span> <span style="font-size: 12px; color: #666;">Native</span>
+                </div>
+                <div class="language-item">
+                    <strong>Urdu</strong> <span class="proficiency native"></span> <span style="font-size: 12px; color: #666;">Native</span>
+                </div>
+                <div class="language-item">
+                    <strong>English</strong> <span class="proficiency fluent"></span> <span style="font-size: 12px; color: #666;">Fluent</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Technical Skills</div>
+        <div class="content skills-grid">
+            <div><span class="skill-category">Programming:</span> C++, Python (Basics), JavaScript</div>
+            <div><span class="skill-category">Web Technologies:</span> HTML, CSS, JavaScript</div>
+            <div><span class="skill-category">AI / ML:</span> Machine Learning concepts, AI fundamentals (self-learning)</div>
+            <div><span class="skill-category">Tools & Software:</span> VS Code, MS Office (Word, Excel, PowerPoint)</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Academic Projects</div>
+        <div class="content">
+            <div class="project-item">
+                <h3>Personal Portfolio Website</h3>
+                <div class="tech">Tech: HTML, CSS, JavaScript</div>
+                <p>Designed and developed a fully responsive personal portfolio website showcasing academic background, skills, and projects. Implemented clean UI/UX principles with smooth navigation and a mobile-friendly layout.</p>
+            </div>
+            <div class="project-item">
+                <h3>Student Record Management System</h3>
+                <div class="tech">Tech: C++</div>
+                <p>Built a console-based student record management application as part of Programming Fundamentals coursework. Implemented OOP concepts, file handling, and data search features in C++.</p>
+            </div>
+            <div class="project-item">
+                <h3>Python Data Analysis Project</h3>
+                <div class="tech">Tech: Python, Pandas, NumPy, Matplotlib</div>
+                <p>Completed a data analysis project using Python libraries. Processed and visualized datasets to extract meaningful insights and created interactive charts and reports.</p>
+            </div>
+            <div class="project-item">
+                <h3>File Organizer Script</h3>
+                <div class="tech">Tech: Python, OS Module, shutil</div>
+                <p>Developed a Python automation script that organizes files by extension, renames bulk files, and cleans up directories. Implemented error handling and logging features.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Soft Skills</div>
+        <div class="soft-skills">
+            <span class="soft-skill">Teamwork</span>
+            <span class="soft-skill">Communication</span>
+            <span class="soft-skill">Problem Solving</span>
+            <span class="soft-skill">Adaptability</span>
+            <span class="soft-skill">Willingness to Learn</span>
+        </div>
+    </div>
+
+    <div class="section" style="margin-top: 30px; border-top: 2px solid #1a5490; padding-top: 15px;">
+        <div class="content" style="text-align: center; font-style: italic; color: #666;">
+            <p>References available upon request</p>
+        </div>
+    </div>
+</body>
+</html>

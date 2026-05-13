@@ -1,0 +1,714 @@
+/* Custom CSS for Portfolio - Enhanced Animations */
+
+/* =============================================
+   KEYFRAME ANIMATIONS
+   ============================================= */
+
+/* Spin slow for hero profile ring */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+@keyframes ambient-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(24px, -18px, 0) scale(1.08);
+  }
+}
+.ambient-orb {
+  animation: ambient-drift 18s ease-in-out infinite;
+}
+.ambient-orb-two {
+  animation-delay: -6s;
+}
+
+/* Float animation for badges */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(-1deg);
+  }
+}
+.float-badge {
+  animation: float 4s ease-in-out infinite;
+}
+.float-badge-delay {
+  animation: float 4s ease-in-out infinite 0.5s;
+}
+
+/* Premium section shells */
+.section-shell {
+  background-image:
+    radial-gradient(
+      circle at 12% 14%,
+      rgba(99, 102, 241, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 88% 8%,
+      rgba(139, 92, 246, 0.06),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(99, 102, 241, 0.05),
+      transparent 30%
+    );
+  background-repeat: no-repeat;
+}
+.dark .section-shell {
+  background-image:
+    radial-gradient(
+      circle at 12% 14%,
+      rgba(99, 102, 241, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(circle at 88% 8%, rgba(139, 92, 246, 0.1), transparent 24%),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(99, 102, 241, 0.08),
+      transparent 30%
+    );
+}
+
+/* Premium card surface */
+.premium-card,
+.skill-card,
+.project-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  backdrop-filter: blur(18px);
+}
+.premium-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.92),
+    rgba(255, 255, 255, 0.82)
+  );
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease;
+}
+.dark .premium-card {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.88),
+    rgba(15, 23, 42, 0.76)
+  );
+  box-shadow:
+    0 22px 55px rgba(2, 6, 23, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.premium-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 28px 70px rgba(99, 102, 241, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.skill-card,
+.project-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.92),
+    rgba(255, 255, 255, 0.8)
+  );
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+.dark .skill-card,
+.dark .project-card {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.88),
+    rgba(30, 41, 59, 0.82)
+  );
+  box-shadow:
+    0 22px 55px rgba(2, 6, 23, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(99, 102, 241, 0.14);
+}
+.skill-card::before,
+.project-card::before,
+.premium-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 18%,
+    rgba(255, 255, 255, 0.18) 45%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+.dark .skill-card::before,
+.dark .project-card::before,
+.dark .premium-card::before {
+  background: linear-gradient(
+    120deg,
+    transparent 18%,
+    rgba(255, 255, 255, 0.08) 45%,
+    transparent 70%
+  );
+}
+.skill-card:hover::before,
+.project-card:hover::before,
+.premium-card:hover::before {
+  transform: translateX(120%);
+}
+.skill-card > *,
+.project-card > *,
+.premium-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Glow effect for cards */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 20px rgba(99, 102, 241, 0.6),
+      0 0 40px rgba(139, 92, 246, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(99, 102, 241, 0.3);
+  }
+}
+
+/* Text reveal animation */
+@keyframes text-reveal {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Pulse animation */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Bounce in animation */
+@keyframes bounce-in {
+  0% {
+    transform: translateY(50px) scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(-10px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Slide in animation with rotation */
+@keyframes slide-rotate-in {
+  from {
+    transform: translateX(-100px) rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+/* =============================================
+   SCROLL ANIMATION BASE CLASSES
+   ============================================= */
+
+/* Fade up (default) */
+.anim-fade-up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition:
+    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anim-fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade down */
+.anim-fade-down {
+  opacity: 0;
+  transform: translateY(-60px);
+  transition:
+    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anim-fade-down.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide in from left */
+.anim-slide-left {
+  opacity: 0;
+  transform: translateX(-100px) rotateY(25deg);
+  transition:
+    opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anim-slide-left.in-view {
+  opacity: 1;
+  transform: translateX(0) rotateY(0deg);
+}
+
+/* Slide in from right */
+.anim-slide-right {
+  opacity: 0;
+  transform: translateX(100px) rotateY(-25deg);
+  transition:
+    opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anim-slide-right.in-view {
+  opacity: 1;
+  transform: translateX(0) rotateY(0deg);
+}
+
+/* Scale pop */
+.anim-scale {
+  opacity: 0;
+  transform: scale(0.5) translateY(30px);
+  transition:
+    opacity 0.95s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.95s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.anim-scale.in-view {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Flip in (for cards) */
+.anim-flip {
+  opacity: 0;
+  transform: perspective(1000px) rotateY(90deg) rotateX(10deg) translateY(50px);
+  transition:
+    opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anim-flip.in-view {
+  opacity: 1;
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0);
+}
+
+/* Stagger delays */
+.delay-100 {
+  transition-delay: 0.1s !important;
+}
+.delay-200 {
+  transition-delay: 0.2s !important;
+}
+.delay-300 {
+  transition-delay: 0.3s !important;
+}
+.delay-400 {
+  transition-delay: 0.4s !important;
+}
+.delay-500 {
+  transition-delay: 0.5s !important;
+}
+.delay-600 {
+  transition-delay: 0.6s !important;
+}
+.delay-700 {
+  transition-delay: 0.7s !important;
+}
+.delay-800 {
+  transition-delay: 0.8s !important;
+}
+.delay-900 {
+  transition-delay: 0.9s !important;
+}
+.delay-1000 {
+  transition-delay: 1s !important;
+}
+
+/* Section heading underline reveal */
+.section-title-line {
+  position: relative;
+  display: inline-block;
+}
+.section-title-line::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(to right, #6366f1, #8b5cf6);
+  border-radius: 2px;
+  transition: width 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
+}
+.section-title-line.in-view::after {
+  width: 100%;
+}
+
+/* =============================================
+   SKILL CARDS - ENHANCED
+   ============================================= */
+.skill-card {
+  opacity: 0;
+  transform: translateY(50px) scale(0.9) rotateX(10deg);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+.skill-card.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotateX(0deg);
+}
+.skill-card:hover {
+  transform: translateY(-15px) scale(1.05) !important;
+  box-shadow:
+    0 25px 50px -12px rgba(99, 102, 241, 0.35),
+    0 0 30px rgba(99, 102, 241, 0.2);
+  z-index: 10;
+}
+
+/* =============================================
+   PROJECT CARDS - ENHANCED
+   ============================================= */
+.project-card {
+  opacity: 0;
+  transform: translateY(60px) rotateX(15deg) scale(0.95);
+  transform-origin: bottom center;
+  transition:
+    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+.project-card.in-view {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg) scale(1);
+}
+.project-card:hover {
+  transform: translateY(-18px) scale(1.03) rotateX(-5deg) !important;
+  box-shadow:
+    0 30px 60px -15px rgba(99, 102, 241, 0.4),
+    0 0 40px rgba(139, 92, 246, 0.2);
+  z-index: 10;
+}
+.project-card .aspect-video > i {
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.project-card:hover .aspect-video > i {
+  transform: scale(1.25) rotate(-8deg);
+}
+
+/* =============================================
+  TIMELINE ITEMS
+  ============================================= */
+.timeline-item {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.timeline-item.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 16px;
+  width: 2px;
+  height: calc(100% + 32px);
+  background: linear-gradient(
+    to bottom,
+    rgba(99, 102, 241, 0.4),
+    rgba(99, 102, 241, 0.05)
+  );
+}
+.timeline-item:last-child::before {
+  display: none;
+}
+
+/* =============================================
+   NAVIGATION
+   ============================================= */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #6366f1, #8b5cf6);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+.nav-link.active {
+  color: #6366f1;
+}
+
+/* =============================================
+   PROGRESS BARS
+   ============================================= */
+.progress-bar {
+  width: 0 !important;
+  transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.skill-card.in-view .progress-bar {
+  width: var(--target-width) !important;
+}
+
+/* =============================================
+   MOBILE MENU
+   ============================================= */
+#mobile-menu {
+  transition: all 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+}
+#mobile-menu.active {
+  max-height: 300px;
+}
+
+/* =============================================
+   FORM
+   ============================================= */
+input:focus,
+textarea:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+/* =============================================
+   SCROLLBAR
+   ============================================= */
+html {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #6366f1, #8b5cf6);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #4f46e5, #7c3aed);
+}
+
+/* =============================================
+   HERO GRADIENT ANIMATION
+   ============================================= */
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+#hero h1 span.bg-clip-text {
+  background-size: 200% auto;
+  animation: gradientShift 5s ease infinite;
+}
+
+/* =============================================
+   FLOATING BADGE ANIMATION
+   ============================================= */
+@keyframes floatBadge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.float-badge {
+  animation: floatBadge 3s ease-in-out infinite;
+}
+.float-badge-delay {
+  animation: floatBadge 3s ease-in-out 1.5s infinite;
+}
+
+/* =============================================
+   BUTTON & INTERACTIVE ENHANCEMENTS
+   ============================================= */
+
+/* Gradient button hover effect */
+button[class*="gradient"],
+a[class*="gradient"] {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+}
+
+button[class*="gradient"]:hover,
+a[class*="gradient"]:hover {
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+  transform: translateY(-3px);
+}
+
+button[class*="gradient"]:active,
+a[class*="gradient"]:active {
+  transform: translateY(-1px);
+}
+
+/* Input field enhancement */
+input,
+textarea,
+select {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Link hover effects */
+a:not([class*="nav"]):not([class*="gradient"]) {
+  transition:
+    color 0.3s ease,
+    text-decoration-color 0.3s ease;
+}
+
+a:not([class*="nav"]):not([class*="gradient"]):hover {
+  text-decoration-color: #6366f1;
+}
+
+/* =============================================
+   SMOOTH SCROLLING & TRANSITIONS
+   ============================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* =============================================
+   ENHANCED HOVER EFFECTS FOR CARDS
+   ============================================= */
+
+.bg-white,
+.dark\\:bg-gray-800 {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =============================================
+   REDUCE MOTION
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+  .anim-fade-up {
+    transform: translateY(30px);
+  }
+  .anim-slide-left {
+    transform: translateX(-40px);
+  }
+  .anim-slide-right {
+    transform: translateX(40px);
+  }
+}

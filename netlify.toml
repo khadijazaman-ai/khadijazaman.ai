@@ -1,0 +1,41 @@
+[build]
+  # No build command needed for static site
+  publish = "."
+
+[build.environment]
+  # Environment variables (if needed in future)
+  NODE_VERSION = "18"
+
+[[headers]]
+  # Security headers
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';"
+
+[[headers]]
+  # Cache static assets
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  # SPA redirect - all routes to index.html
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[dev]
+  # Development server settings
+  command = "npx serve ."
+  targetPort = 3000
+  publish = "."
+  autoLaunch = true

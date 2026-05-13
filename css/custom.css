@@ -1,0 +1,405 @@
+/* ============================================
+   PORTFOLIO — CLEAN CSS
+   ============================================ */
+
+/* 1. SCROLL BEHAVIOUR & SCROLLBAR
+   ------------------------------------------ */
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+.dark ::-webkit-scrollbar-track { background: #1f2937; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #6366f1, #8b5cf6);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #4f46e5, #7c3aed);
+}
+
+/* 2. KEYFRAMES
+   ------------------------------------------ */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes float-badge-delay {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes ambient-drift-one {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(30px, -20px) scale(1.06); }
+}
+@keyframes ambient-drift-two {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(-40px, 25px) scale(1.08); }
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+@keyframes progress-fill {
+  from { width: 0 !important; }
+}
+@keyframes spin-form {
+  to { transform: rotate(360deg); }
+}
+@keyframes particle-burst {
+  0%   { transform: translate(0,0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+}
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(99,102,241,.5), 0 0 20px rgba(99,102,241,.3); }
+  50%       { box-shadow: 0 0 16px rgba(99,102,241,.9), 0 0 40px rgba(99,102,241,.5), 0 0 60px rgba(99,102,241,.2); }
+}
+@keyframes morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50%       { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+/* 3. UTILITY ANIMATIONS
+   ------------------------------------------ */
+.animate-spin-slow   { animation: spin-slow 8s linear infinite; }
+.float-badge         { animation: float-badge 3.5s ease-in-out infinite; }
+.float-badge-delay   { animation: float-badge-delay 3.5s ease-in-out 1.2s infinite; }
+.ambient-orb-one     { animation: ambient-drift-one 18s ease-in-out infinite; }
+.ambient-orb-two     { animation: ambient-drift-two 22s ease-in-out infinite; }
+.neon-glow           { animation: neon-pulse 2.5s ease-in-out infinite; }
+.morphing-blob       { animation: morph 8s ease-in-out infinite; }
+
+/* 4. HERO GRADIENT TEXT
+   ------------------------------------------ */
+#hero h1 .bg-clip-text {
+  background-size: 200% auto;
+  animation: gradient-shift 5s ease infinite;
+}
+
+/* 5. TYPING CURSOR
+   ------------------------------------------ */
+.typing-cursor::after {
+  content: '|';
+  margin-left: 2px;
+  color: #6366f1;
+  animation: blink 1s step-end infinite;
+}
+
+/* 6. SCROLL PROGRESS BAR
+   ------------------------------------------ */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(to right, #6366f1, #8b5cf6, #a78bfa);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* 7. BACK TO TOP
+   ------------------------------------------ */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  width: 44px; height: 44px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .3s ease, transform .3s ease, box-shadow .3s ease;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(99,102,241,.4);
+  border: none;
+}
+#back-to-top.visible { opacity: 1; transform: translateY(0); }
+#back-to-top:hover   { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(99,102,241,.55); }
+
+/* 8. NAVIGATION
+   ------------------------------------------ */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: linear-gradient(to right, #6366f1, #8b5cf6);
+  transition: width .3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+.nav-link.active { color: #6366f1; }
+
+/* 9. MOBILE MENU
+   ------------------------------------------ */
+#mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+}
+#mobile-menu.active { max-height: 320px; }
+
+/* 10. SECTION SHELL (subtle bg radials)
+    ----------------------------------------- */
+.section-shell {
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(99,102,241,.07) 0%, transparent 30%),
+    radial-gradient(circle at 90% 5%,  rgba(139,92,246,.05) 0%, transparent 25%);
+  background-repeat: no-repeat;
+}
+
+/* 11. PREMIUM CARD
+    ----------------------------------------- */
+.premium-card {
+  transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease;
+}
+.premium-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px -12px rgba(99,102,241,.2);
+}
+
+/* 12. CARD SHIMMER SWEEP
+    ----------------------------------------- */
+.skill-card,
+.project-card,
+.premium-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.skill-card::before,
+.project-card::before,
+.premium-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,.18) 50%, transparent 80%);
+  transform: translateX(-120%);
+  transition: transform .7s cubic-bezier(.22,1,.36,1);
+  pointer-events: none;
+  z-index: 0;
+}
+.dark .skill-card::before,
+.dark .project-card::before,
+.dark .premium-card::before {
+  background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,.07) 50%, transparent 80%);
+}
+.skill-card:hover::before,
+.project-card:hover::before,
+.premium-card:hover::before { transform: translateX(120%); }
+.skill-card > *,
+.project-card > *,
+.premium-card > * { position: relative; z-index: 1; }
+
+/* 13. SECTION TITLE UNDERLINE
+    ----------------------------------------- */
+.section-title-line { position: relative; display: inline-block; }
+.section-title-line::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; left: 0;
+  width: 0; height: 3px;
+  background: linear-gradient(to right, #6366f1, #8b5cf6);
+  border-radius: 2px;
+  transition: width 1s cubic-bezier(.22,1,.36,1) .3s;
+}
+.section-title-line.in-view::after { width: 100%; }
+
+/* 14. STAGGER DELAYS
+    ----------------------------------------- */
+.delay-100  { transition-delay: .10s !important; }
+.delay-200  { transition-delay: .20s !important; }
+.delay-300  { transition-delay: .30s !important; }
+.delay-400  { transition-delay: .40s !important; }
+.delay-500  { transition-delay: .50s !important; }
+.delay-600  { transition-delay: .60s !important; }
+.delay-700  { transition-delay: .70s !important; }
+.delay-800  { transition-delay: .80s !important; }
+
+/* 15. SCROLL REVEAL — BASE STATES (hidden)
+    ----------------------------------------- */
+.anim-fade-up {
+  opacity: 0;
+  transform: translateY(55px);
+  transition: opacity .85s cubic-bezier(.22,1,.36,1),
+              transform .85s cubic-bezier(.22,1,.36,1);
+}
+.anim-fade-down {
+  opacity: 0;
+  transform: translateY(-55px);
+  transition: opacity .85s cubic-bezier(.22,1,.36,1),
+              transform .85s cubic-bezier(.22,1,.36,1);
+}
+.anim-slide-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity .9s cubic-bezier(.22,1,.36,1),
+              transform .9s cubic-bezier(.22,1,.36,1);
+}
+.anim-slide-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity .9s cubic-bezier(.22,1,.36,1),
+              transform .9s cubic-bezier(.22,1,.36,1);
+}
+.anim-scale {
+  opacity: 0;
+  transform: scale(.7);
+  transition: opacity .75s cubic-bezier(.34,1.56,.64,1),
+              transform .75s cubic-bezier(.34,1.56,.64,1);
+}
+.anim-flip {
+  opacity: 0;
+  transform: perspective(800px) rotateY(60deg);
+  transition: opacity .9s cubic-bezier(.22,1,.36,1),
+              transform .9s cubic-bezier(.22,1,.36,1);
+}
+.skill-card {
+  opacity: 0;
+  transform: translateY(45px) scale(.94);
+  transition: opacity .8s cubic-bezier(.22,1,.36,1),
+              transform .8s cubic-bezier(.22,1,.36,1),
+              box-shadow .3s ease;
+}
+.project-card {
+  opacity: 0;
+  transform: translateY(55px);
+  transition: opacity .85s cubic-bezier(.22,1,.36,1),
+              transform .85s cubic-bezier(.22,1,.36,1),
+              box-shadow .3s ease;
+}
+.timeline-item {
+  opacity: 0;
+  transform: translateX(-45px);
+  transition: opacity .8s cubic-bezier(.22,1,.36,1),
+              transform .8s cubic-bezier(.22,1,.36,1);
+}
+
+/* 16. SCROLL REVEAL — IN-VIEW STATES (visible)
+    ----------------------------------------- */
+.anim-fade-up.in-view,
+.anim-fade-down.in-view  { opacity: 1; transform: translateY(0); }
+.anim-slide-left.in-view { opacity: 1; transform: translateX(0); }
+.anim-slide-right.in-view{ opacity: 1; transform: translateX(0); }
+.anim-scale.in-view      { opacity: 1; transform: scale(1); }
+.anim-flip.in-view       { opacity: 1; transform: perspective(800px) rotateY(0deg); }
+.skill-card.in-view      { opacity: 1; transform: translateY(0) scale(1); }
+.project-card.in-view    { opacity: 1; transform: translateY(0); }
+.timeline-item.in-view   { opacity: 1; transform: translateX(0); }
+
+/* 17. CARD HOVER EFFECTS
+    ----------------------------------------- */
+.skill-card:hover {
+  transform: translateY(-12px) scale(1.04) !important;
+  box-shadow: 0 28px 55px -14px rgba(99,102,241,.35) !important;
+  z-index: 10;
+}
+.project-card:hover {
+  transform: translateY(-14px) scale(1.02) !important;
+  box-shadow: 0 32px 60px -16px rgba(99,102,241,.38) !important;
+  z-index: 10;
+}
+
+/* 18. TIMELINE CONNECTOR
+    ----------------------------------------- */
+.timeline-item { position: relative; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2px; top: 16px;
+  width: 2px;
+  height: calc(100% + 32px);
+  background: linear-gradient(to bottom, rgba(99,102,241,.4), rgba(99,102,241,.05));
+}
+.timeline-item:last-child::before { display: none; }
+
+/* 19. SKILL PROGRESS BARS
+    ----------------------------------------- */
+.skill-card .h-2 > div {
+  transition: width 1.3s cubic-bezier(.22,1,.36,1) .25s;
+}
+
+/* 20. FORM
+    ----------------------------------------- */
+input, textarea {
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+input:focus, textarea:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(99,102,241,.18);
+}
+.loading-spinner {
+  display: inline-block;
+  width: 20px; height: 20px;
+  border: 2px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin-form 1s linear infinite;
+}
+
+/* 21. CONTACT CARD GLOW
+    ----------------------------------------- */
+#contact .premium-card:hover {
+  box-shadow: 0 0 0 2px rgba(99,102,241,.25),
+              0 20px 40px -12px rgba(99,102,241,.18);
+}
+
+/* 22. FOOTER SOCIAL
+    ----------------------------------------- */
+footer a {
+  transition: transform .25s ease, color .25s ease;
+  display: inline-block;
+}
+footer a:hover { transform: translateY(-3px); }
+
+/* 23. CURSOR GLOW (injected by JS)
+    ----------------------------------------- */
+#cursor-glow {
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: normal;
+}
+
+/* 24. REDUCE MOTION
+    ----------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  /* Force show all animated elements */
+  .anim-fade-up, .anim-fade-down,
+  .anim-slide-left, .anim-slide-right,
+  .anim-scale, .anim-flip,
+  .skill-card, .project-card, .timeline-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* 25. AMBIENT ORBS
+    ----------------------------------------- */
+.ambient-orb-one {
+  animation: ambient-drift-one 18s ease-in-out infinite;
+}
+.ambient-orb-two {
+  animation: ambient-drift-two 22s ease-in-out infinite;
+}
+
+/* 26. RESPONSIVE TWEAKS
+    ----------------------------------------- */
+@media (max-width: 768px) {
+  .anim-fade-up    { transform: translateY(30px); }
+  .anim-slide-left { transform: translateX(-35px); }
+  .anim-slide-right{ transform: translateX(35px); }
+}

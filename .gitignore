@@ -1,0 +1,19 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Backups and temporary files
+index-backup.html
+*~
+*.bak
+*.tmp
